@@ -1,5 +1,5 @@
 {
-    "name": "laravel/laravel",
+    "name": "sadatech/laravel-admin-installer",
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
@@ -42,7 +42,10 @@
             "php artisan key:generate"
         ],
         "post-install-cmd": [
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "php artisan key:generate",
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "php artisan optimize"
         ],
         "post-update-cmd": [
